@@ -1,10 +1,7 @@
 package todo.app.todo.controller;
 
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Patch;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.*;
 import todo.app.todo.model.Todo;
 import todo.app.todo.service.TodoService;
 
@@ -37,4 +34,15 @@ public class TodoController {
     public HttpResponse updateIsCompletedById(@Body Todo todo) {
         return HttpResponse.ok(todoService.updateIsCompletedById(todo));
     }
+
+    /**
+     * Deletes the todo item by its id.
+     *
+     * @param id
+     * @return HttpResponse
+     */
+    @Delete("/{id}")
+    public HttpResponse delete(@PathVariable("id") Long id) {
+        return HttpResponse.ok(todoService.delete(id));
+    };
 }
