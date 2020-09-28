@@ -44,5 +44,16 @@ public class TodoController {
     @Delete("/{id}")
     public HttpResponse delete(@PathVariable("id") Long id) {
         return HttpResponse.ok(todoService.delete(id));
-    };
+    }
+
+
+    /**
+     * Gets the list of todos.
+     *
+     * @return HttpResponse
+     */
+    @Get("/")
+    public HttpResponse findAll() {
+        return HttpResponse.ok(todoService.findAll());
+    }
 }
