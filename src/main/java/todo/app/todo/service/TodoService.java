@@ -37,5 +37,19 @@ public class TodoService {
 
     }
 
+    /**
+     * Deletes the todo item by its id.
+     * @param id
+     * @return ObjectNode
+     */
+    public ObjectNode delete(Long id) {
+        todoRepository.deleteById(id);
+
+        ObjectNode response = new ObjectMapper().createObjectNode();
+        response.put("id", id);
+
+        return response;
+    }
+
 
 }
