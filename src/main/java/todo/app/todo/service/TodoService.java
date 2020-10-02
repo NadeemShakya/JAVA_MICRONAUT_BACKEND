@@ -51,5 +51,14 @@ public class TodoService {
         return response;
     }
 
+    /**
+     * Gets the list of todos.
+     *
+     * @return Iterable
+     */
+    public Iterable<Todo> findAll() {
+        return todoRepository.findAll();
+    }
+
 
 }
