@@ -1,15 +1,19 @@
 package todo.app.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import todo.app.constant.DatabaseSchema;
+
+import javax.persistence.*;
 
 @Entity(name = "todos")
-@Table(schema = "todo")
+@Table(schema = DatabaseSchema.TODO)
 public class Todo {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String title;
+
+    @Column(name = "is_completed")
     private Boolean isCompleted;
 
     public Long getId() {
